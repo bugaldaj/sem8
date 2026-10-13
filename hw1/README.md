@@ -1,4 +1,5 @@
 # Homework1
+## task2
 - mkdir hw1
 - cd hw1
 - nano complement.py
@@ -34,4 +35,16 @@ if __name__ == "__main__":
 git commit -m "hw1: add complement.py with basic functionality"```
 - делаем второй коммит ```git add ./README.md``` ```git commit -m "hw1: add README with description"```
 - ``` git push  ```
-
+## task3
+- делаю скрипт _count_kmers.py_
+- ``` git add ./count_kmers.py```
+- ``` git commit -m "add count_kmers.py" ```
+- ``` git push origin main ```
+- сделал исправления на github
+- переделал код локально и закоммитил ```add --k and --out parameters```
+- столкнулся с конфликтом при ```git push```
+- ```git pull --no-rebase origin main```
+- исправил конфликт, выбрав нужный код, обернутый в `<<<<<<<`, `=======` и `>>>>>>>`
+- `git add count_kmers.py`
+- `git commit -m "resolve conflict"`
+- `git push origin main`
