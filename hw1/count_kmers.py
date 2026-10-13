@@ -18,7 +18,7 @@ def read_fasta(filename):
             if line.startswith('>'):
                 if current_header:
                     sequences[current_header] = current_seq
-                current_header = line[1:]  # убираем '>'
+                current_header = line[1:]
                 current_seq = ""
             else:
                 current_seq += line
@@ -37,7 +37,6 @@ def count_kmers(sequence, k):
 def main():
     parser = argparse.ArgumentParser(description='Подсчёт k-меров в FASTA файле')
     parser.add_argument('--fa', required=True, help='Входной FASTA файл')
-    # По умолчанию для задания ставим 4, но тип строго int
     parser.add_argument('-k', type=int, default=4, help='Длина k-мера (по умолчанию: 4)')
     parser.add_argument('--out', default='cnts.json', help='Выходной JSON файл')
 
@@ -47,10 +46,8 @@ def main():
     
     result = {}
     for header, seq in sequences.items():
-        # ИСПРАВЛЕНО: вместо k=2 передаем значение из аргументов args.k
         result[header] = count_kmers(seq, k=args.k)
     
-    # ИСПРАВЛЕНО: вместо 'cnts.json' подставляем имя файла из args.out
     with open(args.out, 'w') as f:
         json.dump(result, f, indent=2)
     
